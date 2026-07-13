@@ -16,7 +16,10 @@ const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={path("favicon.svg")} />
+    <link rel="icon" href={`${path("favicon.svg")}?v=3`} type="image/svg+xml" />
+    <link rel="icon" href={`${path("favicon.png")}?v=3`} type="image/png" sizes="512x512" />
+    <link rel="icon" href={`${path("favicon.ico")}?v=3`} sizes="any" />
+    <link rel="apple-touch-icon" href={`${path("favicon.png")}?v=3`} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
