@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 ---
 
-<BaseLayout title="Sobre" description={`Sobre o ${site.name}.`}>
+<BaseLayout title="Sobre" description={`Sobre a ${site.name}.`}>
   <Header slot="header" />
 
   <div class="mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16">
@@ -16,13 +16,12 @@ import { site } from "../data/site";
 
     <div class="prose-studio animate-fade-up-delay mt-10">
       <p>
-        <strong>{site.name}</strong> é um estúdio indie em formação. Este site é o
-        hub oficial para notícias, notas de atualização e o catálogo dos nossos jogos.
+        <strong>{site.name}</strong> é um estúdio indie. Este site é o hub oficial
+        para notícias, notas de atualização e o catálogo dos nossos jogos.
       </p>
       <p>
-        Ainda estamos definindo o nome definitivo do estúdio — por enquanto
-        usamos <em>Studio</em> como placeholder. Em breve, mais jogos, mais posts e
-        uma identidade própria.
+        Aqui acompanhamos o desenvolvimento, patches e lançamentos — com foco em
+        jogos atmosféricos e feitos com cuidado.
       </p>
       <p>
         Quer falar com a gente? Escreva para{" "}

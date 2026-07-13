@@ -10,7 +10,7 @@ featured: true
 order: 1
 ---
 
-**Exemplo Jogo** é um action-adventure 2D em desenvolvimento no Studio.
+**Exemplo Jogo** é um action-adventure 2D em desenvolvimento na Saruê Arcano.
 
 Você atravessa um reino compacto, enfrenta criaturas estranhas e desbloqueia habilidades que abrem novos caminhos. O foco é sensação de movimento, atmosfera e sessões curtas.
 

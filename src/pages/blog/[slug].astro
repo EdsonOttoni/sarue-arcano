@@ -32,7 +32,7 @@ const dateLabel = pubDate.toLocaleDateString("pt-BR", {
   <article class="mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16">
     <a
       href={path("/blog")}
-      class="text-sm font-medium text-moss transition hover:text-moss-bright"
+      class="text-sm font-medium text-arcane-bright transition hover:text-amber-soft"
     >
       ← Blog
     </a>
@@ -46,7 +46,7 @@ const dateLabel = pubDate.toLocaleDateString("pt-BR", {
           game && (
             <>
               <span class="text-ink-muted/40">·</span>
-              <a href={path(`/games/${game}`)} class="text-moss hover:text-moss-bright">
+              <a href={path(`/games/${game}`)} class="text-arcane-bright hover:text-amber-soft">
                 {game}
               </a>
             </>

@@ -22,10 +22,10 @@ const blogPath = path("/blog");
           href={href}
           data-filter-chip={item.slug}
           class:list={[
-            "rounded-md px-3 py-1.5 text-sm font-medium transition-colors hover:bg-moss/15 hover:text-ink",
+            "rounded-md px-3 py-1.5 text-sm font-medium transition-colors hover:bg-arcane/15 hover:text-ink",
             item.slug === ""
-              ? "bg-moss text-paper"
-              : "bg-moss/8 text-ink-muted",
+              ? "bg-arcane text-night"
+              : "bg-arcane/8 text-ink-muted",
           ]}
         >
           {item.label}

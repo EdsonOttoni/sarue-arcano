@@ -41,7 +41,7 @@ const linkLabels: Record<string, string> = {
   <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
     <a
       href={path("/games")}
-      class="text-sm font-medium text-moss transition hover:text-moss-bright"
+      class="text-sm font-medium text-arcane-bright transition hover:text-amber-soft"
     >
       ← Jogos
     </a>
@@ -58,7 +58,7 @@ const linkLabels: Record<string, string> = {
 
     <header class="animate-fade-up-delay mt-8">
       <span
-        class="inline-block rounded bg-moss/10 px-2.5 py-1 text-xs font-medium tracking-wide text-moss uppercase"
+        class="inline-block rounded bg-arcane/15 px-2.5 py-1 text-xs font-medium tracking-wide text-arcane-bright uppercase"
       >
         {status}
       </span>
@@ -73,7 +73,7 @@ const linkLabels: Record<string, string> = {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="rounded-md bg-moss px-4 py-2 text-sm font-semibold text-paper transition hover:bg-moss-bright"
+                class="rounded-md bg-arcane px-4 py-2 text-sm font-semibold text-ink transition hover:bg-arcane-bright"
               >
                 {linkLabels[key] ?? key}
               </a>
@@ -89,7 +89,7 @@ const linkLabels: Record<string, string> = {
 
     {
       relatedPosts.length > 0 && (
-        <section class="mt-16 border-t border-moss/15 pt-12">
+        <section class="mt-16 border-t border-arcane/15 pt-12">
           <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">
             Atualizações
           </h2>

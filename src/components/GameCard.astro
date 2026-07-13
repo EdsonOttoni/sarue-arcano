@@ -13,9 +13,9 @@ const { title, tagline, status, cover } = game.data;
 
 <a
   href={path(`/games/${game.id}`)}
-  class="group block overflow-hidden rounded-lg outline-none ring-moss/0 transition duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-moss"
+  class="group block overflow-hidden rounded-lg outline-none ring-arcane/0 transition duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-arcane"
 >
-  <div class="relative aspect-video overflow-hidden bg-moss/10">
+  <div class="relative aspect-video overflow-hidden bg-arcane/10">
     <Image
       src={cover}
       alt={`Capa de ${title}`}
@@ -24,14 +24,14 @@ const { title, tagline, status, cover } = game.data;
       sizes="(max-width: 768px) 100vw, 50vw"
     />
     <span
-      class="absolute top-3 left-3 rounded bg-ink/80 px-2.5 py-1 text-xs font-medium tracking-wide text-paper uppercase backdrop-blur-sm"
+      class="absolute top-3 left-3 rounded bg-night/85 px-2.5 py-1 text-xs font-medium tracking-wide text-amber-soft uppercase backdrop-blur-sm"
     >
       {status}
     </span>
   </div>
   <div class="pt-4">
     <h3
-      class="font-display text-xl font-semibold text-ink transition-colors group-hover:text-moss"
+      class="font-display text-xl font-semibold text-ink transition-colors group-hover:text-arcane"
     >
       {title}
     </h3>

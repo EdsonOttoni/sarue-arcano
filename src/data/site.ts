@@ -1,15 +1,15 @@
 export const site = {
-  name: "Studio",
+  name: "Saruê Arcano",
   tagline: "Jogos indie feitos com cuidado.",
   description:
-    "Site oficial do Studio — notícias, notas de atualização e nossos jogos.",
+    "Site oficial da Saruê Arcano — notícias, notas de atualização e nossos jogos.",
   url: "https://edsonottoni.github.io/astro-game",
   social: {
     twitter: "https://twitter.com/",
     discord: "https://discord.gg/",
     youtube: "https://youtube.com/",
   },
-  email: "hello@studio.example.com",
+  email: "contato@saruearcano.com",
 } as const;
 
 export const categories = {

@@ -12,7 +12,7 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
 );
 ---
 
-<BaseLayout title="Blog" description="Notícias, notas de atualização e divulgações do Studio.">
+<BaseLayout title="Blog" description="Notícias, notas de atualização e divulgações da Saruê Arcano.">
   <Header slot="header" />
 
   <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
@@ -40,7 +40,7 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
             <a
               href={path(`/blog/${post.id}`)}
               data-category={category}
-              class="post-item group block border-b border-moss/15 py-5 transition-colors first:pt-0 last:border-0 hover:border-moss/30"
+              class="post-item group block border-b border-arcane/15 py-5 transition-colors first:pt-0 last:border-0 hover:border-arcane/30"
             >
               <div class="flex flex-wrap items-center gap-2 text-xs font-medium tracking-wide uppercase">
                 <span class="text-amber">{label}</span>
@@ -49,11 +49,11 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
                   {dateLabel}
                 </time>
               </div>
-              <h3 class="font-display mt-2 text-xl font-semibold text-ink transition-colors group-hover:text-moss sm:text-2xl">
+              <h3 class="font-display mt-2 text-xl font-semibold text-ink transition-colors group-hover:text-arcane sm:text-2xl">
                 {title}
               </h3>
               <p class="mt-1.5 max-w-2xl text-sm text-ink-muted sm:text-base">{description}</p>
-              <span class="mt-3 inline-block text-sm font-medium text-moss opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100">
+              <span class="mt-3 inline-block text-sm font-medium text-arcane-bright opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100">
                 Ler mais →
               </span>
             </a>
@@ -83,9 +83,9 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
 
     chips.forEach((chip) => {
       const active = chip.dataset.filterChip === (current ?? "");
-      chip.classList.toggle("bg-moss", active);
-      chip.classList.toggle("text-paper", active);
-      chip.classList.toggle("bg-moss/8", !active);
+      chip.classList.toggle("bg-arcane", active);
+      chip.classList.toggle("text-night", active);
+      chip.classList.toggle("bg-arcane/8", !active);
       chip.classList.toggle("text-ink-muted", !active);
     });
 

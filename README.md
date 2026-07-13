@@ -1,4 +1,4 @@
-# Studio — site de jogos
+# Saruê Arcano — site de jogos
 
 Blog + catálogo de jogos em **Astro** e **Tailwind**. Conteúdo em Markdown.
 
@@ -14,7 +14,7 @@ npm run dev
 - **Post:** crie um `.md` em `src/content/posts/`
 - **Jogo:** crie um `.md` (e capa) em `src/content/games/`
 
-Troque o nome do estúdio em [`src/data/site.ts`](src/data/site.ts).
+Troque dados do estúdio em [`src/data/site.ts`](src/data/site.ts).
 
 ## Build
 
@@ -32,5 +32,5 @@ O site está configurado para o repositório `astro-game`:
 
 No GitHub: **Settings → Pages → Source: GitHub Actions**.
 
-Após o push em `main`, o site fica em:  
+Após o push em `main`, o site fica em:
 https://edsonottoni.github.io/astro-game/
