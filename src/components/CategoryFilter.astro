@@ -1,5 +1,6 @@
 ---
 import { categories } from "../data/site";
+import { path } from "../lib/paths";
 
 const items: { slug: string; label: string }[] = [
   { slug: "", label: "Todos" },
@@ -8,12 +9,14 @@ const items: { slug: string; label: string }[] = [
     label,
   })),
 ];
+
+const blogPath = path("/blog");
 ---
 
 <div class="flex flex-wrap gap-2" role="navigation" aria-label="Filtrar por categoria">
   {
     items.map((item) => {
-      const href = item.slug ? `/blog?category=${item.slug}` : "/blog";
+      const href = item.slug ? `${blogPath}?category=${item.slug}` : blogPath;
       return (
         <a
           href={href}

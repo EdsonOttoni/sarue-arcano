@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { path } from "../lib/paths";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -11,7 +12,7 @@ const { title, tagline, status, cover } = game.data;
 ---
 
 <a
-  href={`/games/${game.id}`}
+  href={path(`/games/${game.id}`)}
   class="group block overflow-hidden rounded-lg outline-none ring-moss/0 transition duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-moss"
 >
   <div class="relative aspect-video overflow-hidden bg-moss/10">

@@ -1,5 +1,6 @@
 ---
 import { categories, type Category } from "../data/site";
+import { path } from "../lib/paths";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -18,7 +19,7 @@ const dateLabel = pubDate.toLocaleDateString("pt-BR", {
 ---
 
 <a
-  href={`/blog/${post.id}`}
+  href={path(`/blog/${post.id}`)}
   class="group block border-b border-moss/15 py-5 transition-colors first:pt-0 last:border-0 hover:border-moss/30"
 >
   <div class="flex flex-wrap items-center gap-2 text-xs font-medium tracking-wide uppercase">

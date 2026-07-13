@@ -10,4 +10,4 @@ O site do **Studio** entrou no ar.
 
 Por aqui vamos publicar notícias do estúdio, notas de atualização dos jogos e divulgações de lançamentos. Tudo em Markdown — simples e direto.
 
-Fique de olho no [catálogo de jogos](/games) e no [blog](/blog) para as próximas novidades.
+Fique de olho no [catálogo de jogos](/astro-game/games) e no [blog](/astro-game/blog) para as próximas novidades.

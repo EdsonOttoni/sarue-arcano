@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import PostCard from "../components/PostCard.astro";
 import GameCard from "../components/GameCard.astro";
 import { site } from "../data/site";
+import { path } from "../lib/paths";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
@@ -33,13 +34,13 @@ const latestPosts = posts.slice(0, 3);
       </p>
       <div class="animate-fade-up-delay-2 mt-8 flex flex-wrap gap-3">
         <a
-          href="/games"
+          href={path("/games")}
           class="rounded-md bg-moss px-5 py-2.5 text-sm font-semibold text-paper transition hover:bg-moss-bright"
         >
           Ver jogos
         </a>
         <a
-          href="/blog"
+          href={path("/blog")}
           class="rounded-md border border-moss/30 bg-paper/50 px-5 py-2.5 text-sm font-semibold text-moss transition hover:border-moss hover:bg-moss/5"
         >
           Ler o blog
@@ -57,7 +58,7 @@ const latestPosts = posts.slice(0, 3);
               <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">Jogos</h2>
               <p class="mt-1 text-sm text-ink-muted">O que estamos fazendo agora.</p>
             </div>
-            <a href="/games" class="text-sm font-medium text-moss hover:text-moss-bright">
+            <a href={path("/games")} class="text-sm font-medium text-moss hover:text-moss-bright">
               Catálogo →
             </a>
           </div>
@@ -78,7 +79,7 @@ const latestPosts = posts.slice(0, 3);
           <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">Últimas do blog</h2>
           <p class="mt-1 text-sm text-ink-muted">Notícias, patches e divulgações.</p>
         </div>
-        <a href="/blog" class="text-sm font-medium text-moss hover:text-moss-bright">
+        <a href={path("/blog")} class="text-sm font-medium text-moss hover:text-moss-bright">
           Ver tudo →
         </a>
       </div>

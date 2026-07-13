@@ -19,4 +19,4 @@ Você atravessa um reino compacto, enfrenta criaturas estranhas e desbloqueia ha
 - PC (Steam / itch.io)
 - Mais plataformas a anunciar
 
-Wishlist e demos serão divulgadas no [blog](/blog).
+Wishlist e demos serão divulgadas no [blog](/astro-game/blog).

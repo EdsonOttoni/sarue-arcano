@@ -3,7 +3,7 @@ export const site = {
   tagline: "Jogos indie feitos com cuidado.",
   description:
     "Site oficial do Studio — notícias, notas de atualização e nossos jogos.",
-  url: "https://studio.example.com",
+  url: "https://edsonottoni.github.io/astro-game",
   social: {
     twitter: "https://twitter.com/",
     discord: "https://discord.gg/",

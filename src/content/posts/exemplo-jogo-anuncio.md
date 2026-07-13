@@ -9,6 +9,6 @@ draft: false
 
 Estamos felizes em anunciar **Exemplo Jogo**, nosso próximo título.
 
-Explore um mundo curto e atmosférico, com combate preciso e exploração. O primeiro trailer já está disponível — mais detalhes em breve na [página do jogo](/games/exemplo-jogo).
+Explore um mundo curto e atmosférico, com combate preciso e exploração. O primeiro trailer já está disponível — mais detalhes em breve na [página do jogo](/astro-game/games/exemplo-jogo).
 
 Wishlist e demos serão anunciadas por aqui.

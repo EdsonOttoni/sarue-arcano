@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { categories, type Category } from "../../data/site";
+import { path } from "../../lib/paths";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -30,7 +31,7 @@ const dateLabel = pubDate.toLocaleDateString("pt-BR", {
 
   <article class="mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16">
     <a
-      href="/blog"
+      href={path("/blog")}
       class="text-sm font-medium text-moss transition hover:text-moss-bright"
     >
       ← Blog
@@ -45,7 +46,7 @@ const dateLabel = pubDate.toLocaleDateString("pt-BR", {
           game && (
             <>
               <span class="text-ink-muted/40">·</span>
-              <a href={`/games/${game}`} class="text-moss hover:text-moss-bright">
+              <a href={path(`/games/${game}`)} class="text-moss hover:text-moss-bright">
                 {game}
               </a>
             </>

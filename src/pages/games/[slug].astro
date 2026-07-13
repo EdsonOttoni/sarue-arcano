@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import PostCard from "../../components/PostCard.astro";
+import { path } from "../../lib/paths";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -39,7 +40,7 @@ const linkLabels: Record<string, string> = {
 
   <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
     <a
-      href="/games"
+      href={path("/games")}
       class="text-sm font-medium text-moss transition hover:text-moss-bright"
     >
       ← Jogos
