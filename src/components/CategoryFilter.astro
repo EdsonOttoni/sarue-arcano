@@ -1,0 +1,33 @@
+---
+import { categories } from "../data/site";
+
+const items: { slug: string; label: string }[] = [
+  { slug: "", label: "Todos" },
+  ...Object.entries(categories).map(([slug, label]) => ({
+    slug,
+    label,
+  })),
+];
+---
+
+<div class="flex flex-wrap gap-2" role="navigation" aria-label="Filtrar por categoria">
+  {
+    items.map((item) => {
+      const href = item.slug ? `/blog?category=${item.slug}` : "/blog";
+      return (
+        <a
+          href={href}
+          data-filter-chip={item.slug}
+          class:list={[
+            "rounded-md px-3 py-1.5 text-sm font-medium transition-colors hover:bg-moss/15 hover:text-ink",
+            item.slug === ""
+              ? "bg-moss text-paper"
+              : "bg-moss/8 text-ink-muted",
+          ]}
+        >
+          {item.label}
+        </a>
+      );
+    })
+  }
+</div>

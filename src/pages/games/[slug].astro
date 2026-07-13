@@ -1,0 +1,107 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PostCard from "../../components/PostCard.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const games = await getCollection("games");
+  return games.map((game) => ({
+    params: { slug: game.id },
+    props: { game },
+  }));
+}
+
+const { game } = Astro.props;
+const { Content } = await render(game);
+const { title, tagline, status, cover, links } = game.data;
+
+const relatedPosts = (
+  await getCollection("posts", ({ data }) => !data.draft && data.game === game.id)
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const linkEntries = Object.entries(links).filter(([, url]) => !!url) as [
+  string,
+  string,
+][];
+
+const linkLabels: Record<string, string> = {
+  steam: "Steam",
+  itch: "itch.io",
+  website: "Site",
+};
+---
+
+<BaseLayout title={title} description={tagline}>
+  <Header slot="header" />
+
+  <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
+    <a
+      href="/games"
+      class="text-sm font-medium text-moss transition hover:text-moss-bright"
+    >
+      ← Jogos
+    </a>
+
+    <div class="mt-6 animate-fade-up overflow-hidden rounded-lg">
+      <Image
+        src={cover}
+        alt={`Capa de ${title}`}
+        class="aspect-video w-full object-cover"
+        widths={[640, 960, 1280]}
+        sizes="(max-width: 1024px) 100vw, 1024px"
+      />
+    </div>
+
+    <header class="animate-fade-up-delay mt-8">
+      <span
+        class="inline-block rounded bg-moss/10 px-2.5 py-1 text-xs font-medium tracking-wide text-moss uppercase"
+      >
+        {status}
+      </span>
+      <h1 class="font-display mt-3 text-4xl font-bold text-ink sm:text-5xl">{title}</h1>
+      <p class="mt-2 max-w-2xl text-lg text-ink-muted">{tagline}</p>
+
+      {
+        linkEntries.length > 0 && (
+          <div class="mt-6 flex flex-wrap gap-3">
+            {linkEntries.map(([key, url]) => (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-md bg-moss px-4 py-2 text-sm font-semibold text-paper transition hover:bg-moss-bright"
+              >
+                {linkLabels[key] ?? key}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </header>
+
+    <div class="prose-studio animate-fade-up-delay-2 mt-10 max-w-3xl">
+      <Content />
+    </div>
+
+    {
+      relatedPosts.length > 0 && (
+        <section class="mt-16 border-t border-moss/15 pt-12">
+          <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">
+            Atualizações
+          </h2>
+          <p class="mt-1 text-sm text-ink-muted">Posts relacionados a este jogo.</p>
+          <div class="mt-6">
+            {relatedPosts.map((post) => (
+              <PostCard post={post} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

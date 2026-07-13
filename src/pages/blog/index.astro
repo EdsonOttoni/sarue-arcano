@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import CategoryFilter from "../../components/CategoryFilter.astro";
+import { categories, type Category } from "../../data/site";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout title="Blog" description="Notícias, notas de atualização e divulgações do Studio.">
+  <Header slot="header" />
+
+  <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
+    <header class="mb-10 animate-fade-up">
+      <h1 class="font-display text-4xl font-bold text-ink sm:text-5xl">Blog</h1>
+      <p class="mt-2 max-w-lg text-ink-muted">
+        Posts, patch notes e anúncios — tudo em um lugar.
+      </p>
+      <div class="mt-6">
+        <CategoryFilter />
+      </div>
+    </header>
+
+    <div id="post-list" class="animate-fade-up-delay">
+      {
+        posts.map((post) => {
+          const { title, description, pubDate, category } = post.data;
+          const label = categories[category as Category];
+          const dateLabel = pubDate.toLocaleDateString("pt-BR", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          });
+          return (
+            <a
+              href={`/blog/${post.id}`}
+              data-category={category}
+              class="post-item group block border-b border-moss/15 py-5 transition-colors first:pt-0 last:border-0 hover:border-moss/30"
+            >
+              <div class="flex flex-wrap items-center gap-2 text-xs font-medium tracking-wide uppercase">
+                <span class="text-amber">{label}</span>
+                <span class="text-ink-muted/40">·</span>
+                <time class="text-ink-muted" datetime={pubDate.toISOString()}>
+                  {dateLabel}
+                </time>
+              </div>
+              <h3 class="font-display mt-2 text-xl font-semibold text-ink transition-colors group-hover:text-moss sm:text-2xl">
+                {title}
+              </h3>
+              <p class="mt-1.5 max-w-2xl text-sm text-ink-muted sm:text-base">{description}</p>
+              <span class="mt-3 inline-block text-sm font-medium text-moss opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100">
+                Ler mais →
+              </span>
+            </a>
+          );
+        })
+      }
+    </div>
+    <p id="empty-state" class="hidden text-ink-muted">Nenhum post nesta categoria ainda.</p>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<script>
+  function applyFilter() {
+    const params = new URLSearchParams(window.location.search);
+    const current = params.get("category");
+    const items = document.querySelectorAll<HTMLElement>(".post-item");
+    const chips = document.querySelectorAll<HTMLAnchorElement>("[data-filter-chip]");
+    let visible = 0;
+
+    items.forEach((item) => {
+      const match = !current || item.dataset.category === current;
+      item.classList.toggle("hidden", !match);
+      if (match) visible += 1;
+    });
+
+    chips.forEach((chip) => {
+      const active = chip.dataset.filterChip === (current ?? "");
+      chip.classList.toggle("bg-moss", active);
+      chip.classList.toggle("text-paper", active);
+      chip.classList.toggle("bg-moss/8", !active);
+      chip.classList.toggle("text-ink-muted", !active);
+    });
+
+    const empty = document.getElementById("empty-state");
+    empty?.classList.toggle("hidden", visible > 0);
+  }
+
+  applyFilter();
+  window.addEventListener("popstate", applyFilter);
+
+  document.querySelectorAll("[data-filter-chip]").forEach((chip) => {
+    chip.addEventListener("click", (event) => {
+      event.preventDefault();
+      const href = (chip as HTMLAnchorElement).getAttribute("href") ?? "/blog";
+      history.pushState({}, "", href);
+      applyFilter();
+    });
+  });
+</script>

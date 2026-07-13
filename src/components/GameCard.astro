@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  game: CollectionEntry<"games">;
+}
+
+const { game } = Astro.props;
+const { title, tagline, status, cover } = game.data;
+---
+
+<a
+  href={`/games/${game.id}`}
+  class="group block overflow-hidden rounded-lg outline-none ring-moss/0 transition duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-moss"
+>
+  <div class="relative aspect-video overflow-hidden bg-moss/10">
+    <Image
+      src={cover}
+      alt={`Capa de ${title}`}
+      class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+      widths={[480, 800, 1200]}
+      sizes="(max-width: 768px) 100vw, 50vw"
+    />
+    <span
+      class="absolute top-3 left-3 rounded bg-ink/80 px-2.5 py-1 text-xs font-medium tracking-wide text-paper uppercase backdrop-blur-sm"
+    >
+      {status}
+    </span>
+  </div>
+  <div class="pt-4">
+    <h3
+      class="font-display text-xl font-semibold text-ink transition-colors group-hover:text-moss"
+    >
+      {title}
+    </h3>
+    <p class="mt-1 text-sm text-ink-muted">{tagline}</p>
+  </div>
+</a>

@@ -1,0 +1,45 @@
+---
+import { site } from "../data/site";
+
+const pathname = Astro.url.pathname;
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+  { href: "/games", label: "Jogos" },
+  { href: "/about", label: "Sobre" },
+];
+
+function isActive(href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname.startsWith(href);
+}
+---
+
+<header class="border-b border-moss/15 bg-paper/70 backdrop-blur-md">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+    <a
+      href="/"
+      class="font-display text-xl font-semibold tracking-tight text-ink transition-colors hover:text-moss sm:text-2xl"
+    >
+      {site.name}
+    </a>
+    <nav class="flex flex-wrap items-center justify-end gap-1 sm:gap-2" aria-label="Principal">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
+              isActive(link.href)
+                ? "bg-moss/10 text-moss"
+                : "text-ink-muted hover:bg-moss/5 hover:text-ink",
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

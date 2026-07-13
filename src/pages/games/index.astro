@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import GameCard from "../../components/GameCard.astro";
+import { getCollection } from "astro:content";
+
+const games = (await getCollection("games")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout title="Jogos" description="Catálogo de jogos do Studio.">
+  <Header slot="header" />
+
+  <div class="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
+    <header class="mb-10 animate-fade-up">
+      <h1 class="font-display text-4xl font-bold text-ink sm:text-5xl">Jogos</h1>
+      <p class="mt-2 max-w-lg text-ink-muted">
+        Nosso catálogo — toque em um jogo para ver detalhes e atualizações.
+      </p>
+    </header>
+
+    <div class="animate-fade-up-delay grid gap-10 sm:grid-cols-2">
+      {games.map((game) => <GameCard game={game} />)}
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

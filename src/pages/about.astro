@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout title="Sobre" description={`Sobre o ${site.name}.`}>
+  <Header slot="header" />
+
+  <div class="mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16">
+    <header class="animate-fade-up">
+      <h1 class="font-display text-4xl font-bold text-ink sm:text-5xl">Sobre</h1>
+      <p class="mt-2 text-ink-muted">Quem somos e o que fazemos.</p>
+    </header>
+
+    <div class="prose-studio animate-fade-up-delay mt-10">
+      <p>
+        <strong>{site.name}</strong> é um estúdio indie em formação. Este site é o
+        hub oficial para notícias, notas de atualização e o catálogo dos nossos jogos.
+      </p>
+      <p>
+        Ainda estamos definindo o nome definitivo do estúdio — por enquanto
+        usamos <em>Studio</em> como placeholder. Em breve, mais jogos, mais posts e
+        uma identidade própria.
+      </p>
+      <p>
+        Quer falar com a gente? Escreva para{" "}
+        <a href={`mailto:${site.email}`}>{site.email}</a> ou acompanhe nas redes.
+      </p>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import { site } from "../data/site";
+---
+
+<footer class="mt-auto border-t border-moss/15 bg-ink text-paper">
+  <div class="mx-auto flex max-w-5xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-start sm:justify-between sm:px-8">
+    <div>
+      <p class="font-display text-xl font-semibold">{site.name}</p>
+      <p class="mt-1 max-w-xs text-sm text-fog">{site.tagline}</p>
+    </div>
+    <div class="flex flex-col gap-3 text-sm">
+      <div class="flex flex-wrap gap-4">
+        <a class="text-fog transition-colors hover:text-amber-soft" href={site.social.twitter}
+          >Twitter / X</a
+        >
+        <a class="text-fog transition-colors hover:text-amber-soft" href={site.social.discord}
+          >Discord</a
+        >
+        <a class="text-fog transition-colors hover:text-amber-soft" href={site.social.youtube}
+          >YouTube</a
+        >
+      </div>
+      <a class="text-fog/80 transition-colors hover:text-amber-soft" href={`mailto:${site.email}`}>
+        {site.email}
+      </a>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-4 text-center text-xs text-fog/70">
+    © {new Date().getFullYear()}
+    {site.name}. Todos os direitos reservados.
+  </div>
+</footer>
